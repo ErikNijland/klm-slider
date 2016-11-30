@@ -1,0 +1,4 @@
+:root {
+    --whitespace-base: 16px;
+    --whitespace-half: calc(var(--whitespace-base) / 2);
+}
