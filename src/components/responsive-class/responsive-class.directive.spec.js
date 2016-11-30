@@ -2,28 +2,28 @@ describe('The klm-responsive-class directive', function () {
     let $compile,
         $rootScope,
         $window,
-        $document;
+        mockedMediaQuery;
 
     beforeEach(function () {
-        angular.mock.module('klmSlider');
+        angular.mock.module(
+            'klmSlider',
+            {
+                mediaQueryService: {
+                    getBreakpoint: function () {
+                        return mockedMediaQuery;
+                    }
+                }
+            }
+        );
 
-        angular.mock.inject(function (_$compile_, _$rootScope_, _$window_, _$document_) {
+        angular.mock.inject(function (_$compile_, _$rootScope_, _$window_) {
             $compile = _$compile_;
             $rootScope = _$rootScope_;
             $window = _$window_;
-            $document = _$document_;
         });
+
+        mockedMediaQuery = 'sm';
     });
-
-    function setBreakpoint (breakpoint) {
-        let stylesheet = document.createElement('style');
-
-        stylesheet.setAttribute('rel', 'stylesheet');
-        stylesheet.setAttribute('type', 'text/css');
-        stylesheet.innerText = 'body::before { content: "' + breakpoint + '"; }';
-
-        $document[0].head.appendChild(stylesheet);
-    }
 
     function getDirective (classes, originalClass) {
         let directive,
@@ -55,12 +55,12 @@ describe('The klm-responsive-class directive', function () {
             lg: 'u-mb--2'
         };
 
-        setBreakpoint('sm');
+        mockedMediaQuery = 'sm';
         directive = getDirective(classes);
         expect(directive.attr('class')).toContain('u-mb--1');
         expect(directive.attr('class')).not.toContain('u-mb--2');
 
-        setBreakpoint('lg');
+        mockedMediaQuery = 'lg';
         directive = getDirective(classes);
         expect(directive.attr('class')).toContain('u-mb--2');
         expect(directive.attr('class')).not.toContain('u-mb--1');
@@ -75,13 +75,13 @@ describe('The klm-responsive-class directive', function () {
             lg: 'u-mb--2'
         };
 
-        setBreakpoint('sm');
+        mockedMediaQuery = 'sm';
         directive = getDirective(classes);
         expect(directive.attr('class')).toContain('u-mb--1');
         expect(directive.attr('class')).not.toContain('u-mb--2');
 
         // Now change the viewport
-        setBreakpoint('lg');
+        mockedMediaQuery = 'lg';
         $window.dispatchEvent(new Event('resize'));
 
         expect(directive.attr('class')).toContain('u-mb--2');
@@ -95,7 +95,7 @@ describe('The klm-responsive-class directive', function () {
         classes = {
             sm: 'u-mb--1'
         };
-        setBreakpoint('lg');
+        mockedMediaQuery = 'lg';
         directive = getDirective(classes, 'u-color--red');
 
         expect(directive.attr('class')).toContain('u-color--red');
@@ -110,12 +110,12 @@ describe('The klm-responsive-class directive', function () {
             sm: 'u-mb--1',
             lg: 'u-mb--2'
         };
-        setBreakpoint('sm');
+        mockedMediaQuery = 'sm';
         directive = getDirective(classes, 'u-color--red');
         expect(directive.attr('class')).toContain('u-color--red');
 
         // Switch to another breakpoint
-        setBreakpoint('lg');
+        mockedMediaQuery = 'lg';
         $window.dispatchEvent(new Event('resize'));
 
         expect(directive.attr('class')).toContain('u-color--red');

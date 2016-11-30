@@ -27,7 +27,6 @@ module.exports = function (config) {
             'src/**/*.js'
         ],
         frameworks: ['jasmine'],
-        logLevel: 'DEBUG',
         mochaReporter: {
             output: 'minimal'
         },
