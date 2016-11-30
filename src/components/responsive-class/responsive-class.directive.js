@@ -7,6 +7,13 @@
 
     klmResponsiveClassDirective.$inject = ['$window'];
 
+    /**
+     * @param {Object} klmResponsiveClass - An object with keys that refer to CSS breakpoints, the values are classes
+     * that are exclusively added to the corresponding screen size.
+     *
+     * @example
+     * <div klm-responsive-class="{sm: 'u-color--black', lg: 'u-color--blue'}"></div>
+     */
     function klmResponsiveClassDirective ($window) {
         return {
             restrict: 'A',
