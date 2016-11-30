@@ -1,0 +1,19 @@
+.u-hidden {
+    display: none;
+}
+
+@media (min-width: 0) {
+    .u-hidden--sm {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .u-show--lg {
+        display: block;
+    }
+
+    .u-hidden--lg {
+        display: none;
+    }
+}

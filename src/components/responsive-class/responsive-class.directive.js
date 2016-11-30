@@ -5,7 +5,7 @@
         .module('klmSlider')
         .directive('klmResponsiveClass', klmResponsiveClassDirective);
 
-    klmResponsiveClassDirective.$inject = ['$window'];
+    klmResponsiveClassDirective.$inject = ['$window', 'mediaQueryService'];
 
     /**
      * @param {Object} klmResponsiveClass - An object with keys that refer to CSS breakpoints, the values are classes
@@ -14,7 +14,7 @@
      * @example
      * <div klm-responsive-class="{sm: 'u-color--black', lg: 'u-color--blue'}"></div>
      */
-    function klmResponsiveClassDirective ($window) {
+    function klmResponsiveClassDirective ($window, mediaQueryService) {
         return {
             restrict: 'A',
             scope: {
@@ -30,20 +30,14 @@
             $window.addEventListener('resize', updateClass);
 
             function updateClass () {
-                let allClasses = angular.copy(BASE_CLASSES),
-                    responsiveClasses = scope.klmResponsiveClass[getBreakpoint()];
+                let allClasses = angular.copy(BASE_CLASSES);
+                const responsiveClasses = scope.klmResponsiveClass[mediaQueryService.getBreakpoint()];
 
                 if (angular.isString(responsiveClasses)) {
                     allClasses += ' ' + responsiveClasses;
                 }
 
                 element.attr('class', allClasses);
-            }
-
-            function getBreakpoint () {
-                return $window
-                    .getComputedStyle($window.document.querySelector('body'), ':before')
-                    .getPropertyValue('content').replace(/"/g, '');
             }
         }
     }
