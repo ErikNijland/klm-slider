@@ -19,6 +19,16 @@
 
         vm.activeSlide = 0;
 
+        vm.isSlideActive = function (slideIndex) {
+            return vm.activeSlide === slideIndex;
+        };
 
+        vm.nextSlide = function () {
+            vm.activeSlide = (vm.activeSlide + 1) % NUMBER_OF_SLIDES;
+        };
+
+        vm.previousSlide = function () {
+            vm.activeSlide = (vm.activeSlide || NUMBER_OF_SLIDES) - 1;
+        };
     }
 })();

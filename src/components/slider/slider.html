@@ -1,7 +1,12 @@
 <div class="c-slider">
-    <div class="c-slider__slide u-aspect-ratio u-aspect-ratio--16-9" ng-repeat="slide in vm.slides">
+    <div ng-if="vm.isSlideActive($index)" ng-repeat="slide in vm.slides"
+        class="c-slider__slide u-aspect-ratio u-aspect-ratio--16-9">
+
         <img class="c-slider__image u-aspect-ratio__content" ng-src="{{slide.src}}" alt="{{slide.alt}}">
     </div>
+    {{vm.activeSlide}}
+    <button ng-click="vm.previousSlide()">Previous</button>
+    <button ng-click="vm.nextSlide()">Next</button>
 </div>
 
 <ng-transclude></ng-transclude>

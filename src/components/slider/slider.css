@@ -1,0 +1,15 @@
+.c-slider {
+
+}
+
+.c-slider__slide {
+
+}
+
+.c-slider__image {
+    display: block;
+}
+
+.c-slider__placeholder {
+    background-color: var(--gray-medium);
+}
