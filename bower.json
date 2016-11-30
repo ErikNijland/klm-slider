@@ -6,9 +6,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.5.9"
+    "angular": "^1.5.9",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
-    "babel-standalone": "^6.19.0"
+    "angular-mocks": "^1.5.9"
   }
 }

@@ -5,7 +5,7 @@ describe('The klm-responsive-class directive', function () {
         $document;
 
     beforeEach(function () {
-        angular.mock.module('ikbSlider');
+        angular.mock.module('klmSlider');
 
         angular.mock.inject(function (_$compile_, _$rootScope_, _$window_, _$document_) {
             $compile = _$compile_;
@@ -17,6 +17,7 @@ describe('The klm-responsive-class directive', function () {
 
     function setBreakpoint (breakpoint) {
         let stylesheet = document.createElement('style');
+
         stylesheet.setAttribute('rel', 'stylesheet');
         stylesheet.setAttribute('type', 'text/css');
         stylesheet.innerText = 'body::before { content: "' + breakpoint + '"; }';
