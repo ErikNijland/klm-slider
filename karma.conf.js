@@ -28,6 +28,9 @@ module.exports = function (config) {
         ],
         frameworks: ['jasmine'],
         logLevel: 'DEBUG',
+        mochaReporter: {
+            output: 'minimal'
+        },
         plugins: [
             'karma-coverage',
             'karma-jasmine',
@@ -36,6 +39,7 @@ module.exports = function (config) {
             'karma-phantomjs-launcher'
         ],
         preprocessors: {
+            'src/**/!(*.spec).js': ['coverage'],
             'src/**/*.js': ['babel']
         },
         reporters: [
