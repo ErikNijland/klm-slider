@@ -1,0 +1,14 @@
+{
+  "name": "klm-slider",
+  "homepage": "https://github.com/ErikNijland/klm-slider",
+  "authors": [
+    "Erik Nijland <e.n.nijland@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.9"
+  },
+  "devDependencies": {
+    "babel-standalone": "^6.19.0"
+  }
+}
