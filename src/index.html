@@ -8,8 +8,11 @@
     </head>
     <body>
         <div ng-controller="HomepageController as homepage">
-            {{homepage.slides}}
-            <klm-slider slides="homepage.slides"></klm-slider>
+            <klm-slider slides="homepage.slides">
+                <!--main>
+                    <p>Insert website on top of the slider here.</p>
+                </main-->
+            </klm-slider>
         </div>
 
         <script src="../bower_components/angular/angular.js"></script>

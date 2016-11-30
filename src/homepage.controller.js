@@ -10,16 +10,19 @@
 
         vm.slides = [
             {
-                src: 'assets/dest1.png',
+                src: 'assets/home1.jpg',
                 alt: ''
             }, {
-                src: 'assets/dest2.png',
+                src: 'assets/home2.jpg',
                 alt: ''
             }, {
-                src: 'assets/dest3.png',
+                src: 'assets/home3.jpg',
                 alt: ''
             }, {
-                src: 'assets/dest4.png',
+                src: 'assets/home4.jpg',
+                alt: ''
+            }, {
+                src: 'assets/home5.jpg',
                 alt: ''
             }
         ];
