@@ -14,5 +14,8 @@ module.exports = {
     "plugins": [
         "standard",
         "angular"
-    ]
+    ],
+    "rules": {
+        "angular/document-service": 0
+    }
 };

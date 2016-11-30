@@ -1,0 +1,15 @@
+body::before {
+    display: none;
+}
+
+@media (min-width: 0) {
+    body::before {
+        content: "sm";
+    }
+}
+
+@media (min-width: 768px) {
+    body::before {
+        content: "lg";
+    }
+}
