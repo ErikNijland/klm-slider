@@ -1,12 +1,30 @@
 <div class="c-slider">
     <div ng-if="vm.isSlideActive($index)" ng-repeat="slide in vm.slides"
-        class="c-slider__slide u-aspect-ratio u-aspect-ratio--16-9">
+        class="u-aspect-ratio u-aspect-ratio--16-9">
 
-        <img class="c-slider__image u-aspect-ratio__content" ng-src="{{slide.src}}" alt="{{slide.alt}}">
+        <img class="c-slider__slide u-aspect-ratio__content" ng-src="{{slide.src}}" alt="{{slide.alt}}">
     </div>
-    {{vm.activeSlide}}
-    <button ng-click="vm.previousSlide()">Previous</button>
-    <button ng-click="vm.nextSlide()">Next</button>
+
+    <button ng-click="vm.previousSlide()" class="c-slider__navigation c-slider__navigation--previous">
+        <i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i>
+        <span class="u-sr-only">Vorige</span>
+    </button>
+
+    <button ng-click="vm.nextSlide()" class="c-slider__navigation c-slider__navigation--next">
+        <i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i>
+        <span class="u-sr-only">Volgende</span>
+    </button>
+
+    <div class="c-slider__dots"
+        klm-responsive-class="{sm: 'c-slider__dots--small', lg: 'c-slider__dots--large'}">
+
+        <button ng-repeat="slide in vm.slides"
+            ng-click="vm.goToSlide($index)"
+            class="c-slider__dot"
+            ng-class="{'c-slider__dot--active': vm.isSlideActive($index)}">
+            <span class="u-sr-only">Toon afbeeldig {{$index + 1}}</span>
+        </button>
+    </div>
 </div>
 
 <ng-transclude></ng-transclude>

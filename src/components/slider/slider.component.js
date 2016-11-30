@@ -30,5 +30,9 @@
         vm.previousSlide = function () {
             vm.activeSlide = (vm.activeSlide || NUMBER_OF_SLIDES) - 1;
         };
+
+        vm.goToSlide = function (index) {
+            vm.activeSlide = index;
+        };
     }
 })();
