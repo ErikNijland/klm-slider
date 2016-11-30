@@ -7,12 +7,16 @@
         <link rel="import" href="styles/stylesheet.html">
     </head>
     <body>
-        <p>Test</p>
+        <div ng-controller="HomepageController as homepage">
+            {{homepage.slides}}
+            <klm-slider slides="homepage.slides"></klm-slider>
+        </div>
 
-        <div klm-responsive-class="{sm: 'small', lg: 'large'}">asasas</div>
         <script src="../bower_components/angular/angular.js"></script>
 
         <script src="slider.module.js"></script>
+        <script src="homepage.controller.js"></script>
         <script src="components/responsive-class/responsive-class.directive.js"></script>
+        <script src="components/slider/slider.component.js"></script>
     </body>
 </html>
