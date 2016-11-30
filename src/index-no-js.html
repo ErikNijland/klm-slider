@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="klmSlider" lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <link rel="import" href="styles/stylesheet.html">
+        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+
+        <style type="text/css">
+            .slide {
+                display: none;
+            }
+
+            input {
+                display: none;
+            }
+
+            input:checked + .slide {
+                display: block;
+            }
+
+            label {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body ng-controller="HomepageController as homepage">
+        <form>
+            <input id="klm_slide_1" name="klm_slide" type="radio" checked>
+            <div class="slide">
+                <img src="assets/home1.jpg" alt="">
+                <label for="klm_slide_3">Previous</label>
+                <label for="klm_slide_2">Next</label>
+            </div>
+
+            <input id="klm_slide_2" name="klm_slide" type="radio">
+            <div class="slide">
+                <img src="assets/home2.jpg" alt="">
+                <label for="klm_slide_1">Previous</label>
+                <label for="klm_slide_3">Next</label>
+            </div>
+
+            <input id="klm_slide_3" name="klm_slide" type="radio">
+            <div class="slide">
+                <img src="assets/home3.jpg" alt="">
+                <label for="klm_slide_2">Previous</label>
+                <label for="klm_slide_1">Next</label>
+            </div>
+        </form>
+
+    </body>
+</html>
